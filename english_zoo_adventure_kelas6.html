@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#126b55">
+<title>English Zoo Adventure — Grade 6</title>
+<style>
+:root{--green:#126b55;--mint:#e7f7ef;--blue:#235b9b;--yellow:#ffd66b;--pink:#ffe8ee;--ink:#18332d;--paper:#fffdf7}
+*{box-sizing:border-box} body{margin:0;background:#f1f7f2;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+button{font:inherit;cursor:pointer} .app{max-width:900px;margin:auto;padding:12px}
+.hero{background:linear-gradient(135deg,#0e604e,#27966d);color:white;border-radius:24px;padding:22px 18px;position:relative;overflow:hidden}
+.hero:after{content:"🦒 🐘 🐒";position:absolute;right:12px;bottom:4px;font-size:38px;opacity:.9}
+.kicker{font-weight:800;letter-spacing:1px;font-size:.78rem;color:#d4ffdf}.hero h1{font-size:clamp(1.8rem,7vw,3rem);line-height:1.05;margin:6px 0}.hero p{margin:8px 0 0;max-width:75%}
+.pill{display:inline-block;background:#ffffff25;border:1px solid #ffffff55;border-radius:99px;padding:5px 10px;font-size:.8rem;font-weight:700}
+nav{display:flex;gap:8px;overflow:auto;padding:12px 0;position:sticky;top:0;background:#f1f7f2;z-index:5}
+nav button{white-space:nowrap;border:0;background:white;color:var(--green);font-weight:800;border-radius:99px;padding:9px 14px;box-shadow:0 2px 8px #18332d12}
+nav button.active{background:var(--green);color:white}
+section{scroll-margin-top:76px;margin:12px 0;background:white;border-radius:20px;padding:17px;box-shadow:0 4px 15px #173c2b0c}
+h2{font-size:1.25rem;margin:0 0 8px;color:var(--green)}h3{font-size:1rem;margin:12px 0 7px}
+.sub{color:#557068;font-size:.92rem;margin-top:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{background:var(--paper);border:1px solid #e7eee8;border-radius:15px;padding:12px;min-width:0}
+.tap{width:100%;text-align:left;border:0;border-radius:14px;background:#f0faf4;padding:12px;color:var(--ink);display:flex;gap:10px;align-items:center;min-height:68px}
+.tap:active,.action:active{transform:scale(.98)}.emoji{font-size:1.8rem}.en{font-weight:850;color:#174f42}.id{font-size:.88rem;color:#5d716b}.sound{margin-left:auto;color:var(--green);font-size:1.15rem}
+.tag{font-size:.75rem;font-weight:800;color:#477064;text-transform:uppercase;letter-spacing:.5px}
+.action{border:0;background:var(--green);color:white;border-radius:12px;padding:10px 14px;font-weight:800}
+.action.alt{background:#e8f5ee;color:var(--green)}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.note{background:#fff7df;border-left:4px solid #f3be35;border-radius:10px;padding:10px 12px;font-size:.92rem}
+.question{padding:12px;border:1px solid #e5eee7;border-radius:14px;margin:10px 0}.question p{font-weight:750;margin:0 0 9px}
+.option{display:block;width:100%;text-align:left;background:#f5f8f6;border:1px solid #e0e9e2;border-radius:10px;padding:10px;margin:6px 0;color:var(--ink)}
+.option.correct{background:#e1f7e9;border-color:#49a96e}.option.wrong{background:#fff0ed;border-color:#e58b7e}
+.feedback{font-size:.9rem;font-weight:700;margin-top:7px;min-height:1.3em}
+input[type=text]{width:100%;padding:12px;border:1px solid #cadbd0;border-radius:11px;font:inherit}
+.progress{height:9px;background:#e4eee7;border-radius:20px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;background:#f0b83c;width:0;transition:.3s}
+footer{text-align:center;padding:20px;color:#567269;font-size:.85rem}
+.small{font-size:.82rem;color:#61776f}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media(max-width:520px){.app{padding:9px}.hero{padding:19px 15px}.hero:after{font-size:28px}.hero p{max-width:78%;font-size:.9rem}.grid{gap:8px}.card{padding:9px}.tap{padding:10px;gap:7px}.emoji{font-size:1.45rem}section{padding:14px}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+ <div class="kicker">BAHASA INGGRIS • KELAS VI SD</div>
+ <span class="pill">CHAPTER 3 · A TRIP TO THE ZOO</span>
+ <h1>Zoo Adventure!</h1>
+ <p>Belajar kosakata, mengenal hewan, dan menemukan jalan di kebun binatang. Tap kartu untuk mendengar bahasa Inggrisnya!</p>
+</header>
+<nav id="nav">
+ <button class="active" data-go="start">Mulai</button><button data-go="vocab">Kosakata</button><button data-go="animals">Hewan</button><button data-go="directions">Petunjuk arah</button><button data-go="practice">Latihan</button><button data-go="reflect">Refleksi</button>
+</nav>
+
+<section id="start">
+ <h2>🌟 Misi belajar hari ini</h2>
+ <p class="sub">Setelah petualangan ini, kamu diharapkan mampu:</p>
+ <div class="grid">
+  <div class="card">🐾 Memahami informasi tentang kebun binatang.</div>
+  <div class="card">🧭 Memberikan petunjuk arah sederhana.</div>
+  <div class="card">🗣️ Mengucapkan kosakata dan ungkapan tentang hewan.</div>
+  <div class="card">🤝 Bekerja sama dan berani mencoba berbicara.</div>
+ </div>
+ <div class="note" style="margin-top:12px"><b>Alur belajar mendalam:</b> Pahami → Coba terapkan → Refleksikan. Tidak perlu takut salah. Kita belajar bersama!</div>
+ <div class="actions"><button class="action" onclick="speak('Welcome to the zoo! Let us learn English together.')">🔊 Dengarkan salam</button><button class="action alt" onclick="go('vocab')">Mulai petualangan →</button></div>
+</section>
+
+<section id="vocab">
+ <h2>📚 1. Vocabulary — Kosakata</h2><p class="sub">Ketuk kartu untuk mendengar pelafalan bahasa Inggris. Tekan 🔊 untuk mengulang.</p>
+ <div class="grid" id="vocabGrid"></div>
+ <h3>Action verbs — Kata kerja</h3><div class="grid" id="verbGrid"></div>
+</section>
+
+<section id="animals">
+ <h2>🦁 2. Meet the animals</h2>
+ <p class="sub">Hewan dikelompokkan berdasarkan jenis makanannya.</p>
+ <div class="grid">
+  <button class="tap" onclick="speak('Herbivores eat plants.')"><span class="emoji">🐘</span><span><span class="en">Herbivores</span><br><span class="id">Pemakan tumbuhan</span><br><small>They eat plants.</small></span><span class="sound">🔊</span></button>
+  <button class="tap" onclick="speak('Carnivores eat meat.')"><span class="emoji">🦁</span><span><span class="en">Carnivores</span><br><span class="id">Pemakan daging</span><br><small>They eat meat.</small></span><span class="sound">🔊</span></button>
+  <button class="tap" onclick="speak('Omnivores eat plants and meat.')"><span class="emoji">🐻</span><span><span class="en">Omnivores</span><br><span class="id">Pemakan tumbuhan dan daging</span><br><small>They eat plants and meat.</small></span><span class="sound">🔊</span></button>
+ </div>
+ <h3>Describe the animals — Mendeskripsikan hewan</h3>
+ <div class="grid" id="animalGrid"></div>
+ <div class="note">Contoh kalimat: <b>Elephants eat grass.</b> (Gajah makan rumput.)</div>
+</section>
+
+<section id="directions">
+ <h2>🧭 3. Giving directions — Petunjuk arah</h2>
+ <p class="sub">Bayangkan kamu sedang membantu teman menemukan kandang hewan.</p>
+ <div class="grid" id="directionGrid"></div>
+ <h3>Prepositions of place — Letak tempat</h3><div class="grid" id="prepositionGrid"></div>
+ <h3>Useful questions — Pertanyaan penting</h3>
+ <div id="sentenceGrid"></div>
+</section>
+
+<section id="practice">
+ <h2>🎯 4. Let's practise!</h2><p class="sub">Jawab pertanyaan berikut. Pilih satu jawaban, lalu baca pembahasannya.</p>
+ <div class="progress"><span id="bar"></span></div><div class="small" id="scoreText">Skor: 0 dari 0</div>
+ <div id="quiz"></div>
+ <div class="actions"><button class="action alt" onclick="resetQuiz()">↻ Ulangi latihan</button></div>
+ <h3>🎤 Tantangan berbicara</h3>
+ <div class="card">
+  <p><b>Situation:</b> Your friend asks, “Where is the lion cage?”</p>
+  <p>Ucapkan jawaban ini dengan suara lantang:</p>
+  <button class="tap" onclick="speak('Go straight. Turn left. It is next to the bird house.')"><span><span class="en">Go straight. Turn left. It is next to the bird house.</span><br><span class="id">Jalan lurus. Belok kiri. Letaknya di sebelah rumah burung.</span></span><span class="sound">🔊</span></button>
+  <p class="small">Coba praktikkan berpasangan. Satu murid bertanya, satu murid memberi petunjuk.</p>
+ </div>
+</section>
+
+<section id="reflect">
+ <h2>💡 5. Reflect — Refleksi</h2>
+ <p class="sub">Pikirkan pengalaman belajarmu hari ini. Pilih jawaban yang paling sesuai.</p>
+ <div class="question"><p>1. Kosakata baru apa yang paling kamu ingat?</p><input id="reflectionWord" type="text" placeholder="Contoh: entrance, cage, elephant..."></div>
+ <div class="question"><p>2. Apa yang sudah bisa kamu lakukan?</p>
+  <label><input type="checkbox"> Menyebutkan nama tempat di kebun binatang.</label><br>
+  <label><input type="checkbox"> Menjelaskan hewan dengan kalimat sederhana.</label><br>
+  <label><input type="checkbox"> Memberi petunjuk arah.</label>
+ </div>
+ <div class="question"><p>3. Bagian mana yang masih ingin kamu latih?</p><input id="reflectionNeed" type="text" placeholder="Tuliskan jawabanmu..."></div>
+ <div class="actions"><button class="action" onclick="saveReflection()">Simpan refleksi di perangkat</button><button class="action alt" onclick="speak('Great job! You are an amazing English learner.')">🔊 Beri semangat</button></div>
+ <p class="small" id="savedMsg" aria-live="polite"></p>
+</section>
+<footer>🌿 Keep learning, keep exploring! • English Grade 6</footer>
+</div>
+<script>
+const vocab=[
+['entrance','pintu masuk','🚪'],['exit','pintu keluar','🚶'],['ticket','tiket','🎟️'],['map','peta','🗺️'],['visitor','pengunjung','🧑'],['cage','kandang','🐾'],['keeper','penjaga hewan','🧑‍🌾'],['feed','memberi makan','🥬'],['animal show','pertunjukan hewan','🎪'],['direction','petunjuk arah','🧭'],
+['entrance gate','gerbang masuk','🚩'],['ticket booth','loket tiket','🎫'],['information center','pusat informasi','ℹ️'],['lion cage','kandang singa','🦁'],['elephant area','area gajah','🐘'],['monkey cage','kandang monyet','🐒'],['bird house','rumah burung','🦜'],['reptile house','rumah reptil','🐍'],['toilet','toilet','🚻'],['food court','tempat makan','🍽️']];
+const verbs=[['eat','makan'],['live','tinggal'],['climb','memanjat'],['fly','terbang'],['swim','berenang'],['walk','berjalan'],['run','berlari'],['turn','berbelok'],['go','pergi'],['feed','memberi makan']];
+const animals=[['Elephants eat grass.','Gajah makan rumput.','🐘'],['Lions eat meat.','Singa makan daging.','🦁'],['Monkeys climb trees.','Monyet memanjat pohon.','🐒'],['Crocodiles live in rivers.','Buaya tinggal di sungai.','🐊'],['Giraffes have long necks.','Jerapah memiliki leher panjang.','🦒'],['Birds can fly.','Burung dapat terbang.','🦜']];
+const dirs=[['Go straight.','Jalan lurus.','⬆️'],['Turn left.','Belok kiri.','⬅️'],['Turn right.','Belok kanan.','➡️'],['It is next to...','Letaknya di sebelah...','↔️'],['It is between...','Letaknya di antara...','↔️'],['It is in front of...','Letaknya di depan...','🔜'],['It is behind...','Letaknya di belakang...','🔙']];
+const preps=[['next to','di sebelah'],['between','di antara'],['behind','di belakang'],['in front of','di depan'],['near','dekat'],['on','di atas'],['under','di bawah']];
+const questions=[['Where is the lion cage?','Go straight. Turn left.'],['Where is the elephant area?','Turn right.'],['How can I get to the reptile house?','It is next to the bird house.'],['Where is the toilet?','It is behind the ticket booth.']];
+function cardHTML(en,id,emoji='🔤'){return `<button class="tap" onclick="speak(${JSON.stringify(en)})"><span class="emoji">${emoji}</span><span><span class="en">${en}</span><br><span class="id">${id}</span></span><span class="sound">🔊</span></button>`}
+document.getElementById('vocabGrid').innerHTML=vocab.map(v=>cardHTML(v[0],v[1],v[2])).join('');
+document.getElementById('verbGrid').innerHTML=verbs.map(v=>cardHTML(v[0],v[1],'🏃')).join('');
+document.getElementById('animalGrid').innerHTML=animals.map(a=>cardHTML(a[0],a[1],a[2])).join('');
+document.getElementById('directionGrid').innerHTML=dirs.map(d=>cardHTML(d[0],d[1],d[2])).join('');
+document.getElementById('prepositionGrid').innerHTML=preps.map(p=>cardHTML(p[0],p[1],'📍')).join('');
+document.getElementById('sentenceGrid').innerHTML=questions.map(q=>`<button class="tap" style="margin:7px 0" onclick="speak(${JSON.stringify(q[0]+' '+q[1])})"><span><b class="en">${q[0]}</b><br><span class="id">${q[1]}</span></span><span class="sound">🔊</span></button>`).join('');
+function speak(text){if(!('speechSynthesis'in window)){alert('Maaf, fitur suara tidak didukung browser ini. Coba buka dengan Chrome.');return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.82;u.pitch=1.05;speechSynthesis.speak(u)}
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.go===id))}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+const qs=[
+['What is the Indonesian meaning of “entrance”?',['Pintu masuk','Pintu keluar','Kandang'],'Pintu masuk berarti entrance.'],
+['Which animal is a herbivore?',['Lion','Elephant','Crocodile'],'Elephants eat plants, so they are herbivores.'],
+['What does “Turn left” mean?',['Belok kanan','Jalan lurus','Belok kiri'],'Turn left berarti belok kiri.'],
+['“Monkeys climb trees.” Artinya ...',['Monyet memanjat pohon','Monyet berenang','Monyet makan rumput'],'Climb means memanjat.'],
+['Where is the toilet? “It is behind the ticket booth.”',['Di depan loket tiket','Di belakang loket tiket','Di sebelah loket tiket'],'Behind berarti di belakang.'],
+['Which sentence is correct?',['Lions eat meat.','Lions fly in the sky.','Lions live in trees.'],'Lions eat meat berarti singa makan daging.']
+];let score=0,answered=0;
+function renderQuiz(){document.getElementById('quiz').innerHTML=qs.map((q,i)=>`<div class="question"><p>${i+1}. ${q[0]} <button class="action alt" style="padding:4px 8px" onclick="speak(${JSON.stringify(q[0])})">🔊</button></p>${q[1].map((o,j)=>`<button class="option" data-q="${i}" data-a="${j}" onclick="answer(${i},${j})">${String.fromCharCode(65+j)}. ${o}</button>`).join('')}<div class="feedback" id="f${i}"></div></div>`).join('');updateScore()}
+function answer(i,j){let buttons=document.querySelectorAll(`[data-q="${i}"]`);if([...buttons].some(b=>b.disabled))return;let correct=[0,1,2,0,1,0][i];buttons.forEach((b,k)=>{b.disabled=true;if(k===correct)b.classList.add('correct')});if(j===correct){score++;document.getElementById('f'+i).textContent='Benar! '+qs[i][2]}else{buttons[j].classList.add('wrong');document.getElementById('f'+i).textContent='Belum tepat. '+qs[i][2]}answered++;updateScore()}
+function updateScore(){document.getElementById('scoreText').textContent=`Skor: ${score} dari ${answered} soal dijawab • Total ${qs.length} soal`;document.getElementById('bar').style.width=(answered/qs.length*100)+'%'}
+function resetQuiz(){score=0;answered=0;renderQuiz()}
+renderQuiz();
+function saveReflection(){let a=document.getElementById('reflectionWord').value,b=document.getElementById('reflectionNeed').value;try{localStorage.setItem('zooReflection',JSON.stringify({word:a,need:b,date:new Date().toLocaleDateString('id-ID')}));document.getElementById('savedMsg').textContent='Refleksi tersimpan di perangkat ini. Terima kasih sudah belajar!'}catch(e){document.getElementById('savedMsg').textContent='Refleksi belum dapat disimpan pada browser ini.'}}
+</script>
+</body></html>
